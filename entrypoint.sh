@@ -20,11 +20,17 @@ fi
 if [[ ! -z ${DOMAIN_NAME} ]]; then
     echo -e "ldap.realm=$DOMAIN_NAME" >> conf/sonar.properties
 fi
-if [[ ! -z ${LDAP_BASE_DN} ]]; then
-    echo -e "ldap.user.baseDn=$LDAP_BASE_DN" >> conf/sonar.properties
+if [[ ! -z ${LDAP_USER_BASE_DN} ]]; then
+    echo -e "ldap.user.baseDn=$LDAP_USER_BASE_DN" >> conf/sonar.properties
+fi
+if [[ ! -z ${LDAP_USER_REQUEST} ]]; then
+    echo -e "ldap.user.request=$LDAP_USER_REQUEST" >> conf/sonar.properties
 fi
 if [[ ! -z ${LDAP_GROUP_BASE_DN} ]]; then
-    echo -e "ldap.group.base.dn=$LDAP_GROUP_BASE_DN" >> conf/sonar.properties
+    echo -e "ldap.group.baseDn=$LDAP_GROUP_BASE_DN" >> conf/sonar.properties
+fi
+if [[ ! -z ${LDAP_GROUP_REQUEST} ]]; then
+    echo -e "ldap.group.request=$LDAP_GROUP_REQUEST" >> conf/sonar.properties
 fi
 
 
