@@ -10,6 +10,8 @@ RUN wget "https://github.com/sbaudoin/sonar-yaml/releases/download/v1.4.0/sonar-
 # Replace Already Installed plugins with latest
 RUN rm $SONARQUBE_HOME/extensions/plugins/sonar-java-plugin-* && \
     rm $SONARQUBE_HOME/extensions/plugins/sonar-python-plugin-* && \
+    rm $SONARQUBE_HOME/extensions/plugins/sonar-php-plugin-* && \
+    wget "https://binaries.sonarsource.com/Distribution/sonar-php-plugin/sonar-php-plugin-3.0.0.4537.jar" && \
     wget "https://binaries.sonarsource.com/Distribution/sonar-java-plugin/sonar-java-plugin-5.10.2.17019.jar" && \
     wget "https://binaries.sonarsource.com/Distribution/sonar-python-plugin/sonar-python-plugin-1.12.0.2726.jar"
 
