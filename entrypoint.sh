@@ -47,7 +47,7 @@ do
     if [[ "$envvar_key" =~ sonar.* ]]; then
         sq_opts+=("-D${envvar_key}=${envvar_value}")
     fi
-done < <(env)
+done < <(env)$SONAR_VERSION
 
 exec java -jar lib/sonar-application-$SONAR_VERSION.jar \
   -Dsonar.log.console=true \

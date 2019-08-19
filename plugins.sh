@@ -11,7 +11,7 @@ REPOS=(
 )
 
 ghrelease() {
-  curl -fLO  "https://glare.now.sh/${1}/${2}/${3}"
+  curl -fL  "https://glare.now.sh/${1}/${2}/${3}" -o "${3}".jar
 }
 
 for i in "${REPOS[@]}"; do

@@ -16,7 +16,7 @@ COPY plugins.sh /plugins.sh
 
 # Install Custom Plugins
 RUN /plugins.sh && \
-    curl -O "https://github.com/gabrie-allaigre/sonar-gitlab-plugin/releases/download/4.1.0-SNAPSHOT/sonar-gitlab-plugin-4.1.0-SNAPSHOT.jar"
+    curl -fLO "https://github.com/gabrie-allaigre/sonar-gitlab-plugin/releases/download/4.1.0-SNAPSHOT/sonar-gitlab-plugin-4.1.0-SNAPSHOT.jar"
 
 # Move Plugins and list plugins
 RUN mv *.jar $SONARQUBE_HOME/extensions/plugins && \
@@ -25,4 +25,5 @@ RUN mv *.jar $SONARQUBE_HOME/extensions/plugins && \
 # Configure LDAP via entrypoint script
 COPY entrypoint.sh $SONARQUBE_HOME/bin/
 USER sonarqube
+
 ENTRYPOINT ["./bin/entrypoint.sh"]
