@@ -20,7 +20,8 @@ RUN /plugins.sh && \
 
 # Move Plugins and list plugins
 RUN mv *.jar $SONARQUBE_HOME/extensions/plugins && \
-    ls -lah $SONARQUBE_HOME/extensions/plugins
+    ls -lah $SONARQUBE_HOME/extensions/plugins && \
+    echo 'bootstrap.memory_lock: false' >> /opt/sonarqube/elasticsearch/config/elasticsearch.yml
 
 # Configure LDAP via entrypoint script
 COPY entrypoint.sh $SONARQUBE_HOME/bin/
